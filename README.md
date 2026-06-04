@@ -1,5 +1,9 @@
 <p align="center">
-  <strong>AI Trading Analyst for Hermes Agent.</strong> Run full stock analyses with 5 parallel subagents, build investment theses,<br/>
+  <img src=".github/banner.svg" alt="AI Trading Analyst for Hermes Agent" width="900"/>
+</p>
+
+<p align="center">
+  <strong>AI-powered stock research.</strong> Run full analyses with 5 parallel subagents, build investment theses,<br/>
   assess risk, screen for opportunities, analyze options, and produce professional PDF reports — 16 skills, one command.
 </p>
 
