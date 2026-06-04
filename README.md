@@ -243,17 +243,6 @@ Say `trade portfolio` for correlation analysis and rebalancing suggestions. Use 
 
 ---
 
-## How Hermes Differs from Claude Code
-
-This repository is the **Hermes Agent** edition of the AI Trading Analyst. The original Claude Code version uses `/trade` slash commands and Claude Code's subagent system. This Hermes version:
-
-- Uses **natural language triggers** instead of slash commands — just say "trade analyze AAPL" to Hermes
-- Uses Hermes's **`delegate_task`** tool for 5 parallel subagents instead of Claude Code's agent system
-- Skills auto-load when Hermes detects a relevant request
-- Hermes runs as a **desktop agent**, in your **terminal**, on **Telegram/Discord/Slack**, and more
-
----
-
 ## Project Structure
 
 ```
@@ -307,7 +296,6 @@ This tool is for **educational and research purposes only**. It is **NOT financi
 
 <p align="center">
   <strong>Part of the Hermes Skills Series</strong><br>
-  <a href="https://github.com/zubair-trabzada/ai-trading-claude">Claude Code Edition</a> ·
   <strong>Hermes Edition</strong>
 </p>
 
