@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Trading Analyst - README Hero</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0a0e17;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: 'Inter', -apple-system, sans-serif;
+    padding: 40px;
+  }
+
+  .hero {
+    width: 1200px;
+    height: 400px;
+    background: linear-gradient(165deg, #0b111e 0%, #111827 40%, #0f1923 100%);
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.04);
+    box-shadow: 0 0 80px rgba(34,197,94,0.03), 0 0 160px rgba(59,130,246,0.02);
+  }
+
+  /* Grid overlay */
+  .grid {
+    position: absolute;
+    inset: 0;
+    background-image: 
+      linear-gradient(rgba(255,255,255,0.015) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.015) 1px, transparent 1px);
+    background-size: 60px 60px;
+    mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 70%);
+    -webkit-mask-image: radial-gradient(ellipse 80% 70% at 50% 50%, black 30%, transparent 70%);
+  }
+
+  /* Glowing orbs */
+  .orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+  }
+  .orb-1 {
+    width: 600px; height: 600px;
+    background: radial-gradient(circle, rgba(34,197,94,0.08), transparent);
+    top: -200px; right: -100px;
+  }
+  .orb-2 {
+    width: 400px; height: 400px;
+    background: radial-gradient(circle, rgba(59,130,246,0.06), transparent);
+    bottom: -150px; left: -80px;
+  }
+  .orb-3 {
+    width: 300px; height: 300px;
+    background: radial-gradient(circle, rgba(168,85,247,0.05), transparent);
+    top: 50px; left: 40%;
+  }
+
+  /* Content */
+  .content {
+    position: relative;
+    z-index: 2;
+    height: 100%;
+    display: flex;
+    padding: 48px 56px;
+    gap: 48px;
+  }
+
+  /* Left panel */
+  .left {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #22c55e;
+    text-transform: uppercase;
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .label::before {
+    content: '';
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background: #22c55e;
+    border-radius: 50%;
+    box-shadow: 0 0 12px rgba(34,197,94,0.5);
+    animation: pulse-dot 2s ease-in-out infinite;
+  }
+  @keyframes pulse-dot {
+    0%, 100% { opacity: 0.6; }
+    50% { opacity: 1; }
+  }
+
+  .title {
+    font-size: 44px;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    margin-bottom: 8px;
+  }
+  .title span {
+    background: linear-gradient(135deg, #22c55e, #3b82f6, #a855f7);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .subtitle {
+    font-size: 20px;
+    font-weight: 400;
+    color: #6b7280;
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .tagline {
+    font-size: 14px;
+    color: #4b5563;
+    line-height: 1.5;
+    margin-top: 4px;
+    max-width: 480px;
+  }
+
+  /* Badges */
+  .badges {
+    display: flex;
+    gap: 10px;
+    margin-top: 28px;
+    flex-wrap: wrap;
+  }
+  .badge {
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    border: 1px solid;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .badge-green {
+    background: rgba(34,197,94,0.08);
+    border-color: rgba(34,197,94,0.2);
+    color: #22c55e;
+  }
+  .badge-blue {
+    background: rgba(59,130,246,0.08);
+    border-color: rgba(59,130,246,0.2);
+    color: #3b82f6;
+  }
+  .badge-purple {
+    background: rgba(168,85,247,0.08);
+    border-color: rgba(168,85,247,0.2);
+    color: #a855f7;
+  }
+  .badge-red {
+    background: rgba(239,68,68,0.08);
+    border-color: rgba(239,68,68,0.2);
+    color: #ef4444;
+  }
+  .badge-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+  .bd-green { background: #22c55e; }
+  .bd-blue { background: #3b82f6; }
+  .bd-purple { background: #a855f7; }
+  .bd-red { background: #ef4444; }
+
+  .version {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: #374151;
+    margin-top: 32px;
+    letter-spacing: 1px;
+  }
+
+  /* Right panel - visual dashboard */
+  .right {
+    width: 480px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+  }
+
+  /* Score gauge */
+  .gauge-wrapper {
+    background: rgba(255,255,255,0.02);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 16px;
+    padding: 24px 28px;
+  }
+
+  .gauge-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 16px;
+  }
+  .gauge-title {
+    font-size: 12px;
+    font-weight: 600;
+    color: #9ca3af;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+  }
+  .gauge-score {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 32px;
+    font-weight: 700;
+    color: #22c55e;
+    line-height: 1;
+  }
+  .gauge-score span {
+    font-size: 14px;
+    color: #6b7280;
+    font-weight: 400;
+  }
+
+  .gauge-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 3px;
+    overflow: hidden;
+    margin-bottom: 4px;
+  }
+  .gauge-fill {
+    height: 100%;
+    border-radius: 3px;
+    background: linear-gradient(90deg, #22c55e, #3b82f6, #a855f7);
+    width: 74%;
+    transition: width 1s ease;
+  }
+
+  .gauge-labels {
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #4b5563;
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  /* Dimension bars */
+  .dims {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .dim {
+    display: grid;
+    grid-template-columns: 100px 1fr 32px;
+    align-items: center;
+    gap: 12px;
+  }
+  .dim-label {
+    font-size: 11px;
+    color: #6b7280;
+    font-weight: 500;
+    text-align: right;
+  }
+  .dim-bar {
+    height: 4px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 2px;
+    overflow: hidden;
+  }
+  .dim-fill {
+    height: 100%;
+    border-radius: 2px;
+    transition: width 1s ease;
+  }
+  .dim-fill.tech { background: #22c55e; width: 78%; }
+  .dim-fill.fund { background: #3b82f6; width: 82%; }
+  .dim-fill.sent { background: #a855f7; width: 68%; }
+  .dim-fill.risk { background: #f59e0b; width: 62%; }
+  .dim-fill.thes { background: #ec4899; width: 71%; }
+
+  .dim-val {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    color: #9ca3af;
+    text-align: right;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    margin: 0;
+  }
+
+  /* Mini terminal */
+  .terminal-line {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    display: flex;
+    gap: 8px;
+    align-items: center;
+  }
+  .terminal-prompt {
+    color: #22c55e;
+  }
+  .terminal-text {
+    color: #9ca3af;
+  }
+  .terminal-text strong {
+    color: #e5e7eb;
+    font-weight: 500;
+  }
+
+  /* Animated prices */
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.03);
+  }
+  .price-row:last-child { border-bottom: none; }
+
+  .price-ticker {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 600;
+    color: #e5e7eb;
+  }
+  .price-value {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    font-weight: 600;
+    color: #d1d5db;
+  }
+  .price-change {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 500;
+    padding: 2px 8px;
+    border-radius: 4px;
+  }
+  .price-change.up {
+    color: #22c55e;
+    background: rgba(34,197,94,0.08);
+  }
+  .price-change.down {
+    color: #ef4444;
+    background: rgba(239,68,68,0.08);
+  }
+
+  /* Candlestick decoration */
+  .candles {
+    position: absolute;
+    bottom: 48px;
+    right: 56px;
+    display: flex;
+    align-items: flex-end;
+    gap: 4px;
+    opacity: 0.12;
+  }
+  .candle {
+    width: 6px;
+    border-radius: 1px;
+  }
+  .candle.green {
+    background: #22c55e;
+  }
+  .candle.red {
+    background: #ef4444;
+  }
+  .wick {
+    width: 2px;
+    margin: 0 auto;
+    background: rgba(255,255,255,0.15);
+  }
+</style>
+</head>
+<body>
+<div class="hero">
+  <div class="grid"></div>
+  <div class="orb orb-1"></div>
+  <div class="orb orb-2"></div>
+  <div class="orb orb-3"></div>
+
+  <!-- Candlesticks -->
+  <div class="candles">
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:12px;"></div>
+      <div class="candle green" style="height:32px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:8px;"></div>
+      <div class="candle red" style="height:24px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:16px;"></div>
+      <div class="candle green" style="height:40px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:6px;"></div>
+      <div class="candle red" style="height:18px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:20px;"></div>
+      <div class="candle green" style="height:48px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:10px;"></div>
+      <div class="candle red" style="height:28px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:14px;"></div>
+      <div class="candle green" style="height:36px;"></div>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:center;">
+      <div class="wick" style="height:18px;"></div>
+      <div class="candle green" style="height:44px;"></div>
+    </div>
+  </div>
+
+  <div class="content">
+    <!-- Left: Brand -->
+    <div class="left">
+      <div class="label">AI Trading Analyst</div>
+      <div class="title">Trade Smarter<br>with <span>AI Agents</span></div>
+      <div class="subtitle">for Hermes Agent</div>
+      <div class="tagline">
+        Launch 5 parallel AI agents to analyze any stock. Get technical, fundamental, sentiment, risk, and thesis scores — all from one command.
+      </div>
+      <div class="badges">
+        <span class="badge badge-green"><span class="badge-dot bd-green"></span>16 Skills</span>
+        <span class="badge badge-blue"><span class="badge-dot bd-blue"></span>5 Agents</span>
+        <span class="badge badge-purple"><span class="badge-dot bd-purple"></span>PDF Reports</span>
+        <span class="badge badge-red"><span class="badge-dot bd-red"></span>Real-Time</span>
+      </div>
+      <div class="version">v1.0.0 · MIT License</div>
+    </div>
+
+    <!-- Right: Dashboard -->
+    <div class="right">
+      <div class="gauge-wrapper">
+        <div class="gauge-header">
+          <span class="gauge-title">Trade Score</span>
+          <span class="gauge-score">74 <span>/100</span></span>
+        </div>
+        <div class="gauge-bar">
+          <div class="gauge-fill" style="width:74%"></div>
+        </div>
+        <div class="gauge-labels">
+          <span style="color:#ef4444;">0</span>
+          <span style="color:#4b5563;">Caution</span>
+          <span style="color:#22c55e;">Strong Buy</span>
+          <span style="color:#22c55e;">100</span>
+        </div>
+      </div>
+
+      <div class="dims">
+        <div class="dim">
+          <span class="dim-label">Technical</span>
+          <div class="dim-bar"><div class="dim-fill tech"></div></div>
+          <span class="dim-val">78</span>
+        </div>
+        <div class="dim">
+          <span class="dim-label">Fundamental</span>
+          <div class="dim-bar"><div class="dim-fill fund"></div></div>
+          <span class="dim-val">82</span>
+        </div>
+        <div class="dim">
+          <span class="dim-label">Sentiment</span>
+          <div class="dim-bar"><div class="dim-fill sent"></div></div>
+          <span class="dim-val">68</span>
+        </div>
+        <div class="dim">
+          <span class="dim-label">Risk Profile</span>
+          <div class="dim-bar"><div class="dim-fill risk"></div></div>
+          <span class="dim-val">62</span>
+        </div>
+        <div class="dim">
+          <span class="dim-label">Thesis</span>
+          <div class="dim-bar"><div class="dim-fill thes"></div></div>
+          <span class="dim-val">71</span>
+        </div>
+      </div>
+
+      <div style="display:flex;gap:16px;">
+        <div style="flex:1;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:12px 16px;">
+          <div class="price-row">
+            <span class="price-ticker">AAPL</span>
+            <span class="price-value">$198.40</span>
+            <span class="price-change up">+1.2%</span>
+          </div>
+          <div class="price-row">
+            <span class="price-ticker">NVDA</span>
+            <span class="price-value">$892.50</span>
+            <span class="price-change up">+2.3%</span>
+          </div>
+          <div class="price-row">
+            <span class="price-ticker">TSLA</span>
+            <span class="price-value">$248.60</span>
+            <span class="price-change down">-0.8%</span>
+          </div>
+        </div>
+        <div style="flex:1;display:flex;flex-direction:column;justify-content:center;background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.04);border-radius:12px;padding:12px 16px;">
+          <div class="terminal-line">
+            <span class="terminal-prompt">$</span>
+            <span class="terminal-text">trade analyze <strong>AAPL</strong></span>
+          </div>
+          <div class="terminal-line" style="opacity:0.6;">
+            <span class="terminal-prompt">→</span>
+            <span class="terminal-text">5 agents launched in parallel</span>
+          </div>
+          <div class="terminal-line" style="opacity:0.4;">
+            <span class="terminal-prompt">✓</span>
+            <span class="terminal-text">Score: 74/100 — Grade: A</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -1,5 +1,5 @@
 <p align="center">
-  <img src=".github/banner.svg" alt="AI Trading Analyst for Hermes Agent" width="900"/>
+  <img src=".github/hero-banner.png" alt="AI Trading Analyst for Hermes Agent" width="100%"/>
 </p>
 
 <p align="center">
