@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+.DS_Store
+*.swp
+*.swo
+*~
+*.bak
+TRADE-*.md
+TRADE-REPORT.pdf
+trade_report_data.json
